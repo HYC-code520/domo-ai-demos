@@ -47,7 +47,7 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom design system colors
+        // Custom glassmorphism colors
         navy: {
           deep: "hsl(var(--navy-deep))",
           medium: "hsl(var(--navy-medium))",
@@ -60,6 +60,10 @@ export default {
         text: {
           primary: "hsl(var(--text-primary))",
           secondary: "hsl(var(--text-secondary))",
+        },
+        glass: {
+          bg: "hsl(var(--glass-bg))",
+          border: "hsl(var(--glass-border))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -78,13 +82,16 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
-        'gradient-hero': 'var(--gradient-hero)',
+        'gradient-glass': 'var(--gradient-glass)',
         'gradient-card': 'var(--gradient-card)',
         'gradient-accent': 'var(--gradient-accent)',
       },
       boxShadow: {
-        'custom-lg': 'var(--shadow-lg)',
+        'glass': 'var(--shadow-glass)',
         'glow': 'var(--shadow-glow)',
+      },
+      backdropBlur: {
+        'glass': '20px',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
