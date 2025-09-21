@@ -47,7 +47,7 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom glassmorphism colors
+        // Modern gradient colors
         navy: {
           deep: "hsl(var(--navy-deep))",
           medium: "hsl(var(--navy-medium))",
@@ -56,6 +56,14 @@ export default {
         blue: {
           electric: "hsl(var(--blue-electric))",
           soft: "hsl(var(--blue-soft))",
+        },
+        purple: {
+          bright: "hsl(var(--purple-bright))",
+          soft: "hsl(var(--purple-soft))",
+        },
+        pink: {
+          bright: "hsl(var(--pink-bright))",
+          soft: "hsl(var(--pink-soft))",
         },
         text: {
           primary: "hsl(var(--text-primary))",
@@ -82,13 +90,16 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       backgroundImage: {
+        'gradient-hero': 'var(--gradient-hero)',
         'gradient-glass': 'var(--gradient-glass)',
         'gradient-card': 'var(--gradient-card)',
         'gradient-accent': 'var(--gradient-accent)',
+        'gradient-cube': 'var(--gradient-cube)',
       },
       boxShadow: {
         'glass': 'var(--shadow-glass)',
         'glow': 'var(--shadow-glow)',
+        'cube': 'var(--shadow-cube)',
       },
       backdropBlur: {
         'glass': '20px',
