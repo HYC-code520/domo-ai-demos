@@ -61,11 +61,11 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Right side - Glass D-Shape */}
+          {/* Right side - Glass D-Shape (BIGGER SIZE) */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              {/* Glass D-Shape Logo */}
-              <div className="relative w-96 h-96 lg:w-[500px] lg:h-[500px]">
+              {/* Glass D-Shape Logo - Increased size significantly */}
+              <div className="relative w-[500px] h-[500px] lg:w-[650px] lg:h-[650px] xl:w-[750px] xl:h-[750px]">
                 <img 
                   src="/glass-D-shape.png" 
                   alt="Glass D-Shape Logo"
@@ -75,20 +75,24 @@ const Hero = () => {
                   }}
                 />
                 
-                {/* Enhanced glow effects for the glass D-shape */}
+                {/* Enhanced glow effects for the larger glass D-shape */}
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-bright/25 via-blue-electric/30 to-blue-deep/25 rounded-full blur-3xl animate-pulse opacity-50"></div>
                 <div className="absolute inset-0 bg-gradient-accent rounded-full blur-xl opacity-20 animate-ping"></div>
                 
                 {/* Subtle reflection effect */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent rounded-full opacity-30"></div>
                 
-                {/* Floating light particles around the D-shape */}
-                <div className="absolute -top-6 -right-6 w-3 h-3 bg-blue-bright rounded-full animate-pulse opacity-70"></div>
-                <div className="absolute -bottom-8 -left-6 w-2 h-2 bg-blue-electric rounded-full animate-pulse delay-500 opacity-60"></div>
-                <div className="absolute top-1/3 -left-10 w-2 h-2 bg-blue-light rounded-full animate-pulse delay-1000 opacity-55"></div>
-                <div className="absolute top-1/4 -right-8 w-3 h-3 bg-blue-soft rounded-full animate-pulse delay-700 opacity-65"></div>
-                <div className="absolute bottom-1/3 -right-4 w-2 h-2 bg-blue-medium rounded-full animate-pulse delay-300 opacity-50"></div>
-                <div className="absolute bottom-1/4 -left-8 w-1 h-1 bg-blue-deep rounded-full animate-pulse delay-900 opacity-45"></div>
+                {/* Floating light particles around the larger D-shape */}
+                <div className="absolute -top-8 -right-8 w-4 h-4 bg-blue-bright rounded-full animate-pulse opacity-70"></div>
+                <div className="absolute -bottom-10 -left-8 w-3 h-3 bg-blue-electric rounded-full animate-pulse delay-500 opacity-60"></div>
+                <div className="absolute top-1/3 -left-12 w-3 h-3 bg-blue-light rounded-full animate-pulse delay-1000 opacity-55"></div>
+                <div className="absolute top-1/4 -right-10 w-4 h-4 bg-blue-soft rounded-full animate-pulse delay-700 opacity-65"></div>
+                <div className="absolute bottom-1/3 -right-6 w-3 h-3 bg-blue-medium rounded-full animate-pulse delay-300 opacity-50"></div>
+                <div className="absolute bottom-1/4 -left-10 w-2 h-2 bg-blue-deep rounded-full animate-pulse delay-900 opacity-45"></div>
+                
+                {/* Additional particles for the larger size */}
+                <div className="absolute top-1/6 -right-12 w-2 h-2 bg-blue-electric rounded-full animate-pulse delay-1200 opacity-40"></div>
+                <div className="absolute bottom-1/6 -left-14 w-2 h-2 bg-blue-bright rounded-full animate-pulse delay-800 opacity-35"></div>
               </div>
             </div>
           </div>
