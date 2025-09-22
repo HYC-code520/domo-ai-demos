@@ -1,14 +1,47 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const CTA = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    const ctaSection = document.getElementById('cta');
+    if (ctaSection) {
+      observer.observe(ctaSection);
+    }
+
+    return () => {
+      if (ctaSection) {
+        observer.unobserve(ctaSection);
+      }
+    };
+  }, []);
+
   return (
-    <section className="pt-24 pb-0 relative overflow-visible">
-      {/* SVG wave with feathered edges - Updated to pure blue gradient */}
+    <section id="cta" className="pt-24 pb-0 relative overflow-visible">
+      {/* CTA Background - third background image */}
+      <div 
+        className={`fixed inset-0 cta-background transition-opacity duration-1000 z-6 ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
+      </div>
+
+      {/* SVG wave with feathered edges */}
       <div className="absolute bottom-0 left-0 w-full h-32 z-10">
         <svg viewBox="0 0 1200 120" className="w-full h-full" preserveAspectRatio="none">
           <defs>
-            {/* Updated main gradient for the wave - pure blue theme */}
+            {/* Main gradient for the wave */}
             <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="hsl(var(--blue-bright))" />
               <stop offset="50%" stopColor="hsl(var(--blue-electric))" />
@@ -48,7 +81,7 @@ const CTA = () => {
       </div>
       
       {/* Other background effects */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 z-8">
         <div className="absolute top-10 right-10 w-96 h-96 bg-gradient-accent rounded-full blur-3xl opacity-10"></div>
       </div>
       
