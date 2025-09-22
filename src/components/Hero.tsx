@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import cubeImage from "../assets/cube.png";
 
 const Hero = () => {
   return (
@@ -64,12 +65,15 @@ const Hero = () => {
           {/* Right side - Holographic Cube */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              {/* Holographic Cube */}
+              {/* Holographic Cube - Updated path */}
               <div className="relative w-96 h-96 lg:w-[500px] lg:h-[500px]">
                 <img 
-                  src="/src/assets/cube.png" 
+                  src={cubeImage} 
                   alt="Holographic Cube"
                   className="w-full h-full object-contain animate-float"
+                  onError={(e) => {
+                    console.error('Image failed to load:', e.target.src);
+                  }}
                 />
                 
                 {/* Glow effects around the cube */}
