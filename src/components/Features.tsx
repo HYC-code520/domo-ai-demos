@@ -1,43 +1,75 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Zap, Shield, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Zap, MessageCircle, BarChart3 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Features = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.3 }
+    );
+
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      observer.observe(featuresSection);
+    }
+
+    return () => {
+      if (featuresSection) {
+        observer.unobserve(featuresSection);
+      }
+    };
+  }, []);
+
   const features = [
     {
       icon: Zap,
-      title: "Instant AI-Powered Demos",
-      description: "Generate dynamic, conversational video demos from a simple text script. No coding required."
+      title: "Lightning Fast",
+      description: "Create interactive demos in minutes, not hours. Our AI does the heavy lifting."
     },
     {
-      icon: MessageCircle,
-      title: "Real-Time Q&A",
-      description: "Your AI demo can answer user questions on the fly, providing a truly interactive experience."
+      icon: Shield,
+      title: "Enterprise Ready",
+      description: "Bank-level security with SOC 2 compliance and enterprise SSO integration."
     },
     {
       icon: BarChart3,
-      title: "Engagement Analytics",
-      description: "Track user interactions, questions, and conversion points to understand what resonates most."
+      title: "Analytics Driven",
+      description: "Track engagement, conversion rates, and user behavior with detailed analytics."
     }
   ];
 
   return (
-    <section id="features" className="py-24 bg-gradient-to-b from-navy-deep to-navy-medium relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-purple-bright/10 to-transparent"></div>
-        <div className="absolute top-1/2 right-10 w-64 h-64 bg-pink-bright/10 rounded-full blur-3xl"></div>
+    <section id="features" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background transition overlay */}
+      <div 
+        className={`fixed inset-0 features-background transition-opacity duration-1000 ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
       
-      <div className="container mx-auto px-6 relative z-10">
+      {/* Background effects */}
+      <div className="absolute inset-0 z-10">
+        <div className="absolute top-1/2 right-10 w-64 h-64 bg-blue-bright/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/4 left-10 w-96 h-96 bg-blue-electric/8 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 relative z-20">
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
           {/* Left content */}
-          <div>
+          <div className="space-y-8">
             <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
               We specialize in
               <span className="block">
-                <span className="text-purple-bright">Core </span>
-                <span className="text-pink-bright">Features </span>
+                <span className="text-blue-electric">Core </span>
+                <span className="text-blue-bright">Features </span>
                 <span className="text-foreground">for</span>
               </span>
               <span className="text-foreground">engaging product demos.</span>
@@ -59,17 +91,20 @@ const Features = () => {
           {/* Right features list */}
           <div className="space-y-8">
             {features.map((feature, index) => (
-              <div key={index} className="flex items-start space-x-4 group">
-                <div className="flex-shrink-0 w-16 h-16 bg-glass-bg backdrop-blur-glass border border-glass-border rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="h-8 w-8 text-blue-electric" />
+              <div 
+                key={index} 
+                className={`flex items-start space-x-6 group transform transition-all duration-700 delay-${index * 200} ${
+                  isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
+                }`}
+              >
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-gradient-accent rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <feature.icon className="h-8 w-8 text-white" />
+                  </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {feature.description}
-                  </p>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">{feature.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
                 </div>
               </div>
             ))}

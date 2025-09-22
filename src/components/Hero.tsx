@@ -3,21 +3,28 @@ import { ArrowRight, Play } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-hero overflow-hidden">
-      {/* Background gradient elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-96 h-96 bg-purple-bright/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-pink-bright/15 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-electric/10 rounded-full blur-3xl"></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Sticky Background image */}
+      <div className="fixed inset-0 hero-background">
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
       
-      <div className="container mx-auto px-6 pt-20 pb-16 relative z-10">
+      {/* Optional: Keep some subtle gradient overlays for visual enhancement */}
+      <div className="absolute inset-0 z-10">
+        <div className="absolute top-10 left-10 w-96 h-96 bg-blue-electric/15 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-blue-bright/12 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-deep/8 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-6 pt-20 pb-16 relative z-20">
+        {/* Two-column layout */}
         <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
           {/* Left content */}
-          <div>
+          <div className="text-center lg:text-left">
             <h1 className="text-5xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
               Create AI-Powered
-              <span className="bg-gradient-accent bg-clip-text text-transparent block mt-2"> Product Demos </span>
+              <span className="gradient-text-dramatic block mt-2 font-extrabold"> Product Demos </span>
               in Minutes
             </h1>
             
@@ -26,8 +33,8 @@ const Hero = () => {
               Boost conversions and shorten your sales cycle.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 mb-16">
-              <Button size="lg" className="bg-gradient-accent hover:opacity-90 text-white shadow-glow px-8 py-4 text-lg font-semibold rounded-full">
+            <div className="flex flex-col sm:flex-row gap-6 mb-16 justify-center lg:justify-start">
+              <Button size="lg" className="bg-gradient-accent hover:opacity-90 text-white shadow-glow px-8 py-4 text-lg font-semibold rounded-full transform hover:scale-105 transition-all duration-300">
                 Get Started Free
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -38,7 +45,7 @@ const Hero = () => {
             </div>
             
             {/* Feature badges */}
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-gradient-accent rounded-full"></div>
                 <span className="text-sm text-muted-foreground">No coding required</span>
@@ -54,31 +61,27 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Right 3D element */}
+          {/* Right side - Holographic Cube */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              {/* 3D Cube */}
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96">
-                {/* Cube faces */}
-                <div className="absolute inset-0 transform-gpu">
-                  {/* Front face */}
-                  <div className="absolute inset-0 bg-gradient-cube rounded-3xl shadow-cube transform rotate-12 scale-90 opacity-90"></div>
-                  {/* Back face */}
-                  <div className="absolute inset-0 bg-gradient-cube rounded-3xl shadow-cube transform -rotate-6 scale-95 opacity-60"></div>
-                  {/* Main face */}
-                  <div className="absolute inset-0 bg-gradient-cube rounded-3xl shadow-cube backdrop-blur-sm border border-white/20 flex items-center justify-center">
-                    <div className="text-6xl font-bold text-white">D</div>
-                  </div>
-                </div>
+              {/* Holographic Cube */}
+              <div className="relative w-96 h-96 lg:w-[500px] lg:h-[500px]">
+                <img 
+                  src="/src/assets/cube.png" 
+                  alt="Holographic Cube"
+                  className="w-full h-full object-contain animate-float"
+                />
                 
-                {/* Glow effects */}
-                <div className="absolute -inset-8 bg-gradient-cube rounded-full blur-3xl opacity-30 animate-pulse"></div>
-                <div className="absolute -inset-4 bg-gradient-accent rounded-full blur-xl opacity-40"></div>
+                {/* Glow effects around the cube */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-electric/20 via-blue-bright/30 to-blue-deep/20 rounded-full blur-3xl animate-pulse opacity-60"></div>
+                <div className="absolute inset-0 bg-gradient-accent rounded-full blur-2xl opacity-30 animate-ping"></div>
                 
-                {/* Floating particles */}
-                <div className="absolute -top-8 -right-8 w-4 h-4 bg-pink-bright rounded-full animate-pulse opacity-80"></div>
+                {/* Floating particles around the cube */}
+                <div className="absolute -top-8 -right-8 w-4 h-4 bg-blue-bright rounded-full animate-pulse opacity-80"></div>
                 <div className="absolute -bottom-4 -left-4 w-3 h-3 bg-blue-electric rounded-full animate-pulse delay-500 opacity-70"></div>
-                <div className="absolute top-1/2 -left-8 w-2 h-2 bg-purple-bright rounded-full animate-pulse delay-1000 opacity-60"></div>
+                <div className="absolute top-1/2 -left-8 w-2 h-2 bg-blue-deep rounded-full animate-pulse delay-1000 opacity-60"></div>
+                <div className="absolute top-1/4 -right-6 w-3 h-3 bg-blue-soft rounded-full animate-pulse delay-700 opacity-75"></div>
+                <div className="absolute bottom-1/4 -left-6 w-2 h-2 bg-blue-light rounded-full animate-pulse delay-300 opacity-65"></div>
               </div>
             </div>
           </div>

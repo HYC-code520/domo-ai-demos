@@ -28,17 +28,17 @@ All colors MUST be HSL.
     --input: 210 40% 18%;
     --ring: 210 40% 60%;
 
-    /* Modern gradient colors */
+    /* Modern gradient colors - Enhanced for more dramatic effect */
     --navy-deep: 215 100% 8%;
     --navy-medium: 230 45% 15%;
     --navy-light: 235 30% 25%;
     
-    --blue-electric: 240 100% 70%;
-    --blue-soft: 220 80% 60%;
-    --purple-bright: 290 100% 70%;
-    --purple-soft: 270 80% 60%;
-    --pink-bright: 320 100% 70%;
-    --pink-soft: 310 80% 60%;
+    --blue-electric: 220 100% 75%;
+    --blue-soft: 200 90% 65%;
+    --blue-bright: 190 100% 70%;
+    --blue-light: 180 85% 60%;
+    --blue-medium: 210 95% 65%;
+    --blue-deep: 240 100% 60%;
     
     --text-primary: 210 40% 98%;
     --text-secondary: 210 40% 70%;
@@ -46,62 +46,52 @@ All colors MUST be HSL.
     --glass-bg: 215 100% 8% / 0.1;
     --glass-border: 215 50% 30% / 0.2;
 
-    /* Modern gradients and effects */
-    --gradient-hero: linear-gradient(135deg, hsl(215 100% 8%) 0%, hsl(230 45% 15%) 50%, hsl(270 50% 20%) 100%);
+    /* Modern gradients and effects - More dramatic and visible */
+    --gradient-hero: linear-gradient(135deg, hsl(215 100% 8%) 0%, hsl(230 45% 15%) 50%, hsl(220 50% 20%) 100%);
     --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
     --gradient-card: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(var(--pink-bright)) 0%, hsl(var(--purple-bright)) 50%, hsl(var(--blue-electric)) 100%);
-    --gradient-cube: linear-gradient(135deg, hsl(var(--purple-bright)) 0%, hsl(var(--pink-bright)) 50%, hsl(var(--blue-electric)) 100%);
     
-    /* Enhanced shadows */
+    /* Dramatic blue gradient with high contrast */
+    --gradient-accent: linear-gradient(135deg, hsl(var(--blue-bright)) 0%, hsl(var(--blue-electric)) 30%, hsl(var(--blue-deep)) 70%, hsl(var(--blue-soft)) 100%);
+    --gradient-cube: linear-gradient(135deg, hsl(var(--blue-deep)) 0%, hsl(var(--blue-bright)) 40%, hsl(var(--blue-electric)) 100%);
+    
+    /* Enhanced dramatic gradients for text */
+    --gradient-text-dramatic: linear-gradient(135deg, hsl(var(--blue-bright)) 0%, hsl(var(--blue-electric)) 25%, hsl(var(--blue-deep)) 50%, hsl(var(--blue-light)) 75%, hsl(var(--blue-soft)) 100%);
+    
+    /* Enhanced shadows with more drama */
     --shadow-glass: 0 8px 32px rgba(31, 38, 135, 0.37);
-    --shadow-glow: 0 0 60px rgba(147, 51, 234, 0.4);
-    --shadow-cube: 0 20px 60px rgba(147, 51, 234, 0.6);
+    --shadow-glow: 0 0 80px rgba(59, 130, 246, 0.6), 0 0 40px rgba(147, 197, 253, 0.4);
+    --shadow-cube: 0 20px 60px rgba(59, 130, 246, 0.8);
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -123,5 +113,148 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for sticky background effect */
+@layer utilities {
+  .hero-background {
+    background-image: url('./assets/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .features-background {
+    background-image: url('./assets/hero-background02.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+  
+  .background-transition {
+    transition: background-image 1s ease-in-out;
+  }
+  
+  /* Dramatic gradient text class */
+  .gradient-text-dramatic {
+    background: var(--gradient-text-dramatic);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease-in-out infinite;
+  }
+  
+  /* Floating animation for the cube */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes gradientShift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(0deg);
+    }
+    75% {
+      transform: translateY(-10px) rotate(-1deg);
+    }
+  }
+}
+
+/* Glassmorphism effects */
+@layer components {
+  .glass-container {
+    position: relative;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 
+      0 8px 32px rgba(31, 38, 135, 0.37),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+  
+  .glass-container:hover {
+    box-shadow: 
+      0 12px 40px rgba(31, 38, 135, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+  }
+
+  /* Enhanced glassmorphism with feathered edges */
+  .glass-container-feathered {
+    position: relative;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 
+      0 8px 32px rgba(31, 38, 135, 0.37),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+    
+    /* Feathered edge mask */
+    mask: 
+      linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%),
+      linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%);
+    mask-composite: intersect;
+    -webkit-mask-composite: intersect;
+  }
+  
+  .glass-container-feathered::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+  
+  .glass-container-feathered:hover {
+    box-shadow: 
+      0 12px 40px rgba(31, 38, 135, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
   }
 }
