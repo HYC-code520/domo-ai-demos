@@ -45,9 +45,9 @@ const Features = () => {
 
   return (
     <section id="features" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background transition overlay */}
+      {/* Features background transition overlay - higher z-index than hero */}
       <div 
-        className={`fixed inset-0 features-background transition-opacity duration-1000 ${
+        className={`fixed inset-0 features-background transition-opacity duration-1000 z-5 ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >

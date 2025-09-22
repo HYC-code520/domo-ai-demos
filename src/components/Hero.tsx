@@ -1,11 +1,38 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+      observer.observe(heroSection);
+    }
+
+    return () => {
+      if (heroSection) {
+        observer.unobserve(heroSection);
+      }
+    };
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Sticky Background image */}
-      <div className="fixed inset-0 hero-background">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Hero Background - only visible when hero section is visible */}
+      <div 
+        className={`fixed inset-0 hero-background transition-opacity duration-1000 z-0 ${
+          isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
+      >
         {/* Dark overlay to ensure text readability */}
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
