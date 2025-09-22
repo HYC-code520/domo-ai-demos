@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play } from "lucide-react";
-import cubeImage from "../assets/cube.png";
 
 const Hero = () => {
   return (
@@ -62,30 +61,34 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Right side - Holographic Cube */}
+          {/* Right side - Glass D-Shape */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
-              {/* Holographic Cube - Updated path */}
+              {/* Glass D-Shape Logo */}
               <div className="relative w-96 h-96 lg:w-[500px] lg:h-[500px]">
                 <img 
-                  src={cubeImage} 
-                  alt="Holographic Cube"
-                  className="w-full h-full object-contain animate-float"
+                  src="/glass-D-shape.png" 
+                  alt="Glass D-Shape Logo"
+                  className="w-full h-full object-contain animate-float-gentle"
                   onError={(e) => {
                     console.error('Image failed to load:', e.target.src);
                   }}
                 />
                 
-                {/* Glow effects around the cube */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-electric/20 via-blue-bright/30 to-blue-deep/20 rounded-full blur-3xl animate-pulse opacity-60"></div>
-                <div className="absolute inset-0 bg-gradient-accent rounded-full blur-2xl opacity-30 animate-ping"></div>
+                {/* Enhanced glow effects for the glass D-shape */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-bright/25 via-blue-electric/30 to-blue-deep/25 rounded-full blur-3xl animate-pulse opacity-50"></div>
+                <div className="absolute inset-0 bg-gradient-accent rounded-full blur-xl opacity-20 animate-ping"></div>
                 
-                {/* Floating particles around the cube */}
-                <div className="absolute -top-8 -right-8 w-4 h-4 bg-blue-bright rounded-full animate-pulse opacity-80"></div>
-                <div className="absolute -bottom-4 -left-4 w-3 h-3 bg-blue-electric rounded-full animate-pulse delay-500 opacity-70"></div>
-                <div className="absolute top-1/2 -left-8 w-2 h-2 bg-blue-deep rounded-full animate-pulse delay-1000 opacity-60"></div>
-                <div className="absolute top-1/4 -right-6 w-3 h-3 bg-blue-soft rounded-full animate-pulse delay-700 opacity-75"></div>
-                <div className="absolute bottom-1/4 -left-6 w-2 h-2 bg-blue-light rounded-full animate-pulse delay-300 opacity-65"></div>
+                {/* Subtle reflection effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent rounded-full opacity-30"></div>
+                
+                {/* Floating light particles around the D-shape */}
+                <div className="absolute -top-6 -right-6 w-3 h-3 bg-blue-bright rounded-full animate-pulse opacity-70"></div>
+                <div className="absolute -bottom-8 -left-6 w-2 h-2 bg-blue-electric rounded-full animate-pulse delay-500 opacity-60"></div>
+                <div className="absolute top-1/3 -left-10 w-2 h-2 bg-blue-light rounded-full animate-pulse delay-1000 opacity-55"></div>
+                <div className="absolute top-1/4 -right-8 w-3 h-3 bg-blue-soft rounded-full animate-pulse delay-700 opacity-65"></div>
+                <div className="absolute bottom-1/3 -right-4 w-2 h-2 bg-blue-medium rounded-full animate-pulse delay-300 opacity-50"></div>
+                <div className="absolute bottom-1/4 -left-8 w-1 h-1 bg-blue-deep rounded-full animate-pulse delay-900 opacity-45"></div>
               </div>
             </div>
           </div>
